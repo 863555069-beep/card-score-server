@@ -1,0 +1,13 @@
+{
+  "name": "card-score-room-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "打牌记账房间服务（抖音云容器）",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
