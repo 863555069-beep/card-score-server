@@ -1,12 +1,18 @@
 FROM node:18-alpine
 
-WORKDIR /app
+# 抖音云 FaaS 运行时约定：
+#   代码目录 /opt/application
+#   入口脚本 /opt/application/run.sh
+#   监听端口 8000
+WORKDIR /opt/application
 
-# 零依赖：只需要这两个文件
-COPY package.json ./
 COPY index.js ./
+COPY run.sh ./
+COPY package.json ./
 
-ENV PORT=8080
-EXPOSE 8080
+RUN chmod +x /opt/application/run.sh
 
-CMD ["node", "index.js"]
+ENV PORT=8000
+EXPOSE 8000
+
+CMD ["/bin/sh", "-c", "/opt/application/run.sh"]

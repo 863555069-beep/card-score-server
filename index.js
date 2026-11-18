@@ -11,7 +11,8 @@
 const http = require('http')
 const crypto = require('crypto')
 
-const PORT = process.env.PORT || 8080
+// 抖音云 FaaS 运行时固定监听 8000
+const PORT = process.env.PORT || 8000
 
 // ---------- 内存存储 ----------
 const rooms = new Map()
